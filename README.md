@@ -71,4 +71,4 @@ Com localStorage, cada pessoa vê só o que foi salvo no próprio navegador. Par
 
 - Tema claro e escuro (segue o sistema, com botão para trocar).
 - Animações só com `transform`/`opacity`, e quem ativa “reduzir movimento” no sistema recebe versões sem deslocamento.
-- Navegação por teclado nas abas, galeria e formulários; erros aparecem abaixo de cada campo.
+- Navegação por teclado nas abas, galeria e formulários; erros aparecem abaixo de cada campo. 
