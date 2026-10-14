@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vaga | TetoCerto</title>
+  <meta name="description" content="Fotos, descrição, avaliação de segurança, localização e contato do anunciante.">
+  <meta name="theme-color" content="#f1f3f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1318" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tetocerto:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="vaga">
+  <header class="site-header" id="site-header"></header>
+
+  <main id="conteudo">
+    <div class="container" id="vaga" style="padding-top:28px"></div>
+  </main>
+
+  <!-- Avaliação de segurança -->
+  <dialog class="modal" id="dlg-avaliar" aria-labelledby="dlg-avaliar-t">
+    <form class="modal-inner" id="form-avaliar" novalidate>
+      <div class="modal-head">
+        <div>
+          <h2 id="dlg-avaliar-t">Avaliar a segurança do imóvel</h2>
+          <p class="muted" style="margin-top:6px;font-size:.92rem">Só para estudantes que já moraram aqui. Sua avaliação ajuda quem está chegando.</p>
+        </div>
+        <button class="icon-btn" type="button" data-fechar aria-label="Fechar"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="field">
+        <span class="label">Quando você morou aqui? <span class="req">*</span></span>
+        <div class="form-grid">
+          <div class="field"><label for="av-ini" class="hint">Mês de entrada</label><input class="input" type="month" id="av-ini" name="inicio"></div>
+          <div class="field"><label for="av-fim" class="hint">Mês de saída</label><input class="input" type="month" id="av-fim" name="fim"></div>
+        </div>
+        <span class="field-error" data-erro="periodo"></span>
+      </div>
+      <div id="av-criterios" style="display:grid;gap:14px"></div>
+      <div class="field">
+        <label for="av-texto">Comentário sobre segurança <span class="muted" style="font-weight:400">(opcional)</span></label>
+        <textarea class="input" id="av-texto" name="texto" maxlength="600" style="min-height:96px" placeholder="Ex.: rua iluminada, portão com trava, trajeto tranquilo até o ponto de ônibus."></textarea>
+        <span class="field-error" data-erro="texto"></span>
+      </div>
+      <div class="terms-accept field">
+        <label class="check"><input type="checkbox" name="declaracao"><span>Declaro que <strong>morei neste imóvel</strong> e que não sou o proprietário nem parente do anunciante.</span></label>
+        <span class="field-error" data-erro="declaracao"></span>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-fechar>Cancelar</button>
+        <button class="btn btn-primary" type="submit"><i class="ph ph-shield-check"></i>Publicar avaliação</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Denúncia -->
+  <dialog class="modal" id="dlg-denunciar" aria-labelledby="dlg-den-t">
+    <form class="modal-inner" id="form-denunciar" novalidate>
+      <div class="modal-head">
+        <div>
+          <h2 id="dlg-den-t">Denunciar anúncio</h2>
+          <p class="muted" style="margin-top:6px;font-size:.92rem">A moderação da equipe revisa todas as denúncias.</p>
+        </div>
+        <button class="icon-btn" type="button" data-fechar aria-label="Fechar"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="field">
+        <span class="label">Qual o problema?</span>
+        <div class="radio-list" id="den-motivos"></div>
+        <span class="field-error" data-erro="motivo"></span>
+      </div>
+      <div class="field">
+        <label for="den-detalhe">Detalhes <span class="muted" style="font-weight:400">(opcional)</span></label>
+        <textarea class="input" id="den-detalhe" name="detalhe" maxlength="600" style="min-height:90px"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-fechar>Cancelar</button>
+        <button class="btn btn-primary" type="submit"><i class="ph ph-flag"></i>Enviar denúncia</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/vaga.js"></script>
+</body>
+</html>

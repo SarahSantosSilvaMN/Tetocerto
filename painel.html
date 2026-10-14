@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Meu painel | TetoCerto</title>
+  <meta name="description" content="Acompanhe o status dos seus anúncios, renove por mais 60 dias ou cadastre uma nova vaga.">
+  <meta name="theme-color" content="#f1f3f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1318" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tetocerto:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="painel">
+  <header class="site-header" id="site-header"></header>
+
+  <main id="conteudo">
+    <div class="container" id="painel" style="padding-bottom:48px"></div>
+  </main>
+
+  <dialog class="modal" id="dlg-encerrar" aria-labelledby="dlg-enc-t">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <h2 id="dlg-enc-t">Encerrar este anúncio?</h2>
+        <button class="icon-btn" type="button" data-fechar aria-label="Fechar"><i class="ph ph-x"></i></button>
+      </div>
+      <p class="muted">Use quando a vaga for preenchida. O anúncio sai da busca na hora. Se precisar, você pode renová-lo depois por mais 60 dias.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-fechar>Manter no ar</button>
+        <button class="btn btn-primary" type="button" id="confirmar-encerrar"><i class="ph ph-check"></i>Encerrar anúncio</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/painel.js"></script>
+</body>
+</html>

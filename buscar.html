@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Buscar vagas | TetoCerto</title>
+  <meta name="description" content="Busque casas, repúblicas e quartos para estudantes em Diamantina por bairro, valor e tipo.">
+  <meta name="theme-color" content="#f1f3f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1318" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tetocerto:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="buscar">
+  <header class="site-header" id="site-header"></header>
+
+  <main id="conteudo">
+    <section class="container page-head">
+      <h1 class="fade-up">Buscar vagas</h1>
+      <p class="lead fade-up" style="--d:80ms">Casas, repúblicas e quartos em Diamantina. Não é preciso ter conta para buscar.</p>
+    </section>
+
+    <div class="container search-layout">
+      <aside>
+        <button class="btn filters-toggle" type="button" id="filtros-toggle" aria-expanded="false" aria-controls="filtros" style="margin-bottom:12px"><i class="ph ph-sliders-horizontal"></i>Filtros</button>
+        <form class="filters" id="filtros" aria-label="Filtros de busca">
+          <h2>Filtros <button type="button" class="link" id="limpar" style="background:none;border:0;padding:0;font-size:.9rem">Limpar</button></h2>
+
+          <div class="field">
+            <span class="label" id="lbl-tipo">Tipo de imóvel</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-tipo">
+              <label class="chip-opt"><input type="radio" name="tipo" value="" checked><span>Todos</span></label>
+              <label class="chip-opt"><input type="radio" name="tipo" value="casa"><span><i class="ph ph-house-line"></i>Casas</span></label>
+              <label class="chip-opt"><input type="radio" name="tipo" value="republica"><span><i class="ph ph-users-three"></i>Repúblicas</span></label>
+              <label class="chip-opt"><input type="radio" name="tipo" value="quarto"><span><i class="ph ph-bed"></i>Quartos/Kitnets</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-bairro">Bairro</label>
+            <select class="input" id="f-bairro" name="bairro"><option value="">Todos os bairros</option></select>
+          </div>
+
+          <div class="field">
+            <div class="range-row"><label for="f-valor">Valor máximo por pessoa</label></div>
+            <output id="f-valor-out" for="f-valor" class="range-row" style="font-family:var(--font-display);font-weight:700;font-size:1.2rem"></output>
+            <input type="range" id="f-valor" name="valorMax" min="300" max="2000" step="50" value="2000">
+            <span class="hint">Em casas inteiras, dividimos o valor pelo número de vagas.</span>
+          </div>
+
+          <div class="field">
+            <label for="f-ordem">Ordenar por</label>
+            <select class="input" id="f-ordem" name="ordem">
+              <option value="recentes">Mais recentes</option>
+              <option value="menor">Menor valor</option>
+              <option value="expiram">Expiram em breve</option>
+            </select>
+          </div>
+
+          <label class="check"><input type="checkbox" name="expiradas" id="f-expiradas"><span>Mostrar também anúncios expirados</span></label>
+        </form>
+      </aside>
+
+      <section aria-labelledby="count">
+        <div class="expire-note">
+          <i class="ph-fill ph-clock-countdown" aria-hidden="true"></i>
+          <p><strong>Anúncios expiram automaticamente 60 dias após a publicação.</strong> Assim, vagas já preenchidas não continuam aparecendo. O anel em cada vaga mostra quantos dias faltam.</p>
+        </div>
+        <div class="results-bar"><strong id="count" aria-live="polite"></strong></div>
+        <div class="grid-cards" id="resultados"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/buscar.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TetoCerto | Moradia estudantil em Diamantina</title>
+  <meta name="description" content="Casas, repúblicas e quartos perto da UFVJM, anunciados direto pelos proprietários. Gratuito e com avaliação de segurança feita por quem já morou.">
+  <meta name="theme-color" content="#f1f3f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1318" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tetocerto:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="inicio">
+  <header class="site-header" id="site-header"></header>
+
+  <main id="conteudo">
+    <!-- Apresentação -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow fade-up">Moradia estudantil em Diamantina</span>
+          <h1 id="hero-title">Encontrar moradia em Diamantina não devia ser <em>um desafio.</em></h1>
+          <p class="lead fade-up" style="--d:420ms">Casas, repúblicas e quartos perto da UFVJM, anunciados direto pelos proprietários. Gratuito e avaliado por quem já morou.</p>
+          <div class="hero-ctas fade-up" style="--d:560ms">
+            <a class="btn btn-primary" href="buscar.html"><i class="ph ph-magnifying-glass"></i>Buscar vagas</a>
+            <a class="btn" href="anunciar.html">Anunciar imóvel<i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="media hero-media"><img data-foto="ruaBomFim" data-w="1280" alt="Rua de pedra com casarões coloniais em Diamantina" fetchpriority="high"></div>
+          <div class="hero-float" id="hero-float" aria-label="Vaga publicada recentemente"></div>
+          <p class="hero-caption" data-credito="ruaBomFim"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faixa de valores -->
+    <section class="values-band" aria-label="O que o TetoCerto garante">
+      <div class="marquee">
+        <ul>
+          <li><i class="ph ph-hand-heart"></i>Gratuito para estudantes e proprietários</li>
+          <li><i class="ph ph-seal-check"></i>Avaliação verificada por quem já morou</li>
+          <li><i class="ph ph-clock-countdown"></i>Vagas sempre atualizadas: expiram em 60 dias</li>
+          <li><i class="ph ph-graduation-cap"></i>Feito pela comunidade acadêmica</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li><i class="ph ph-hand-heart"></i>Gratuito para estudantes e proprietários</li>
+          <li><i class="ph ph-seal-check"></i>Avaliação verificada por quem já morou</li>
+          <li><i class="ph ph-clock-countdown"></i>Vagas sempre atualizadas: expiram em 60 dias</li>
+          <li><i class="ph ph-graduation-cap"></i>Feito pela comunidade acadêmica</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>Que tipo de moradia você procura?</h2>
+        </div>
+        <div class="bento" data-stagger>
+          <a class="cat" href="buscar.html?tipo=casa" data-reveal>
+            <div class="media"><img data-foto="chica" data-w="1280" alt="Casarão colonial com sacadas de madeira" loading="lazy"></div>
+            <div class="cat-body">
+              <h3>Casas</h3>
+              <p>O imóvel inteiro para dividir com amigos, com contrato direto com o dono.</p>
+              <div class="cat-row"><span class="cat-count" data-count="casa"></span><span class="cat-go"><i class="ph ph-arrow-right"></i></span></div>
+            </div>
+          </a>
+          <a class="cat" href="buscar.html?tipo=republica" data-reveal>
+            <div class="media"><img data-foto="amparo" data-w="960" alt="Rua do Amparo com casas geminadas" loading="lazy"></div>
+            <div class="cat-body">
+              <h3>Repúblicas</h3>
+              <div class="cat-row"><span class="cat-count" data-count="republica"></span><span class="cat-go"><i class="ph ph-arrow-right"></i></span></div>
+            </div>
+          </a>
+          <a class="cat" href="buscar.html?tipo=quarto" data-reveal>
+            <div class="media"><img data-foto="janelas" data-w="960" alt="Janelas e portas coloridas do centro histórico" loading="lazy"></div>
+            <div class="cat-body">
+              <h3>Quartos e kitnets</h3>
+              <div class="cat-row"><span class="cat-count" data-count="quarto"></span><span class="cat-go"><i class="ph ph-arrow-right"></i></span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section how" id="como-funciona">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>Como funciona</h2>
+          <p class="lead">Três passos, sem taxa e sem intermediário. O acordo final é sempre entre você e o proprietário.</p>
+        </div>
+        <div class="steps" data-observe>
+          <svg class="steps-line" preserveAspectRatio="none" viewBox="0 0 100 2" aria-hidden="true"><line x1="0" y1="1" x2="100" y2="1" pathLength="1"/></svg>
+          <div class="step" data-reveal style="--i:0">
+            <span class="step-icon"><i class="ph ph-magnifying-glass"></i></span>
+            <h3>Buscar ou cadastrar-se</h3>
+            <p>Estudantes e pais buscam vagas sem precisar de conta. Proprietários criam a conta em um minuto.</p>
+          </div>
+          <div class="step" data-reveal style="--i:2">
+            <span class="step-icon"><i class="ph ph-megaphone"></i></span>
+            <h3>Publicar a vaga</h3>
+            <p>Fotos, valor, bairro e localização no Google Maps. O anúncio fica no ar por 60 dias e pode ser renovado.</p>
+          </div>
+          <div class="step" data-reveal style="--i:4">
+            <span class="step-icon"><i class="ph ph-shield-check"></i></span>
+            <h3>Avaliar com segurança</h3>
+            <p>Quem já morou no imóvel avalia iluminação, fechaduras e trajeto. O anunciante nunca avalia o próprio imóvel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="section">
+      <div class="container diff-grid">
+        <div data-reveal="clip">
+          <div class="media diff-media"><img data-foto="cruzeiro" data-w="1280" alt="Vista panorâmica de Diamantina a partir do Cruzeiro" loading="lazy"></div>
+          <p class="photo-credit" data-credito="cruzeiro"></p>
+        </div>
+        <div>
+          <h2 data-reveal style="font-size:clamp(2rem,3.6vw,2.9rem)">Pensado para quem chega sem conhecer a cidade</h2>
+          <div class="diff-list" data-stagger>
+            <div class="diff-item" data-reveal>
+              <i class="ph ph-hand-coins"></i>
+              <div><h3>Sem taxas e sem contrato pela plataforma</h3><p>Ninguém paga para usar. O site só aproxima: visita, valores e contrato são combinados direto com o proprietário.</p></div>
+            </div>
+            <div class="diff-item" data-reveal>
+              <i class="ph ph-scales"></i>
+              <div><h3>Avaliação sem conflito de interesse</h3><p>A nota de segurança vem só de estudantes que moraram no imóvel. Proprietários não conseguem avaliar.</p></div>
+            </div>
+            <div class="diff-item" data-reveal>
+              <i class="ph ph-calendar-check"></i>
+              <div><h3>Vagas sempre atualizadas</h3><p>Cada anúncio expira sozinho em 60 dias. Vaga preenchida não fica aparecendo como disponível.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vagas em destaque -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="h-row" style="margin-bottom:28px" data-reveal>
+          <h2 style="font-size:clamp(2rem,3.6vw,2.9rem)">Vagas publicadas agora</h2>
+          <div class="rail-ctrl">
+            <button class="icon-btn" type="button" data-rail="-1" aria-label="Vagas anteriores"><i class="ph ph-arrow-left"></i></button>
+            <button class="icon-btn" type="button" data-rail="1" aria-label="Próximas vagas"><i class="ph ph-arrow-right"></i></button>
+            <a class="btn btn-sm" href="buscar.html">Ver todas</a>
+          </div>
+        </div>
+        <div class="rail" id="destaques" tabindex="0" aria-label="Vagas em destaque"></div>
+      </div>
+    </section>
+
+    <!-- Para quem é -->
+    <section class="section how" id="para-quem">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>Para quem é o TetoCerto</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Perfis" id="aud-tabs">
+          <span class="tab-indicator" aria-hidden="true"></span>
+          <button class="tab" role="tab" aria-selected="true" aria-controls="aud-panel" data-aud="estudantes">Estudantes</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="aud-panel" data-aud="pais" tabindex="-1">Pais e responsáveis</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="aud-panel" data-aud="proprietarios" tabindex="-1">Proprietários</button>
+        </div>
+        <div class="aud-panel" id="aud-panel" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Equipe -->
+    <section class="section" id="equipe">
+      <div class="container">
+        <div class="team" data-reveal>
+          <div>
+            <h2>Quem mantém o TetoCerto</h2>
+            <p>Somos uma equipe de estudantes que passou pela mesma dificuldade de achar moradia ao chegar em Diamantina. O projeto é independente e não tem vínculo formal com a UFVJM.</p>
+            <p class="note muted"><i class="ph ph-info" style="color:var(--accent);font-size:1.2rem"></i>Para denunciar um anúncio, use também o botão “Denunciar” na página da vaga.</p>
+          </div>
+          <div class="contacts" id="contatos" data-stagger></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/home.js"></script>
+</body>
+</html>

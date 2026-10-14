@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Termo de uso | TetoCerto</title>
+  <meta name="description" content="Termo de uso do TetoCerto e créditos das fotografias de Diamantina.">
+  <meta name="theme-color" content="#f1f3f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1318" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tetocerto:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="termos">
+  <header class="site-header" id="site-header"></header>
+
+  <main id="conteudo">
+    <section class="container page-head">
+      <h1 class="fade-up">Termo de uso</h1>
+      <p class="lead fade-up" style="--d:80ms">O que o TetoCerto faz, e o que ele não faz.</p>
+    </section>
+    <div class="container">
+      <div class="prose">
+        <ol id="termo-lista"></ol>
+
+        <h2>Regras que valem para todo o site</h2>
+        <ul>
+          <li><strong>Gratuito:</strong> não há taxas para estudantes nem para proprietários.</li>
+          <li><strong>Sem transação pela plataforma:</strong> nenhum pagamento, contrato ou assinatura acontece dentro do site.</li>
+          <li><strong>Expiração em 60 dias:</strong> todo anúncio sai do ar sozinho e pode ser renovado pelo proprietário.</li>
+          <li><strong>Avaliação sem conflito de interesse:</strong> só estudantes que moraram no imóvel avaliam a segurança.</li>
+          <li><strong>Pais e responsáveis</strong> navegam sem conta, com o mesmo acesso a fotos, avaliações e mapa.</li>
+        </ul>
+
+        <h2>Dicas de segurança</h2>
+        <ul>
+          <li>Visite o imóvel antes de fechar qualquer acordo.</li>
+          <li>Desconfie de pedidos de depósito ou “reserva” antes da visita.</li>
+          <li>Leia o contrato com calma e guarde comprovantes de pagamento feitos ao proprietário.</li>
+          <li>Viu algo estranho? Use o botão “Denunciar” na página da vaga.</li>
+        </ul>
+
+        <h2 id="creditos">Créditos das fotos de Diamantina</h2>
+        <p>As fotos da cidade vêm do Wikimedia Commons, com licença livre. As fotos dos anúncios de demonstração são ilustrativas; nos anúncios reais, as fotos são enviadas pelo proprietário.</p>
+        <ul class="credits" id="creditos-lista"></ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    (function () {
+      UI.$('#termo-lista').innerHTML = TC.TERMO.map(function (p) { return '<li>' + p + '</li>'; }).join('');
+      UI.$('#creditos-lista').innerHTML = Object.keys(UI.FOTOS).map(function (k) {
+        var f = UI.FOTOS[k];
+        return '<li><strong>' + UI.esc(f.titulo) + '</strong>, por ' + UI.esc(f.autor) + ' · ' + UI.esc(f.licenca) +
+          ' · <a class="link" href="' + UI.fotoPagina(k) + '" target="_blank" rel="noopener">ver no Commons</a></li>';
+      }).join('');
+    })();
+  </script>
+</body>
+</html>

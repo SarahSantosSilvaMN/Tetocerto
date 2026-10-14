@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Anunciar imóvel | TetoCerto</title>
+  <meta name="description" content="Cadastre sua vaga para estudantes em Diamantina. Gratuito, sem intermediação.">
+  <meta name="theme-color" content="#f1f3f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1318" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tetocerto:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="anunciar">
+  <header class="site-header" id="site-header"></header>
+
+  <main id="conteudo">
+    <section class="container page-head">
+      <h1 class="fade-up">Cadastrar vaga</h1>
+      <p class="lead fade-up" style="--d:80ms">Gratuito. O anúncio fica ativo por 60 dias e você renova pelo painel quando precisar.</p>
+    </section>
+
+    <div class="container" id="anunciar-raiz">
+      <form class="form-layout" id="form-vaga" novalidate>
+        <div>
+          <!-- 1. Imóvel -->
+          <fieldset class="fset" data-reveal>
+            <legend><span class="n"><i class="ph ph-house-line"></i></span>O imóvel</legend>
+            <div class="field">
+              <span class="label" id="lbl-tipo">Tipo de imóvel <span class="req">*</span></span>
+              <div class="type-opts" role="radiogroup" aria-labelledby="lbl-tipo" id="tipos"></div>
+              <span class="field-error" data-erro="tipo"></span>
+            </div>
+            <div class="field">
+              <label for="v-titulo">Título do anúncio <span class="req">*</span></label>
+              <input class="input" id="v-titulo" name="titulo" maxlength="90" placeholder="Ex.: Quarto mobiliado a 5 minutos do Campus I">
+              <div style="display:flex;justify-content:space-between;gap:12px"><span class="hint">Diga o que o estudante mais quer saber.</span><span class="hint" id="titulo-cont">0 / 90</span></div>
+              <span class="field-error" data-erro="titulo"></span>
+            </div>
+            <div class="field">
+              <label for="v-bairro">Bairro <span class="req">*</span></label>
+              <select class="input" id="v-bairro" name="bairro"><option value="">Escolha o bairro</option></select>
+              <span class="field-error" data-erro="bairro"></span>
+            </div>
+            <div class="field">
+              <label for="v-desc">Descrição do imóvel <span class="req">*</span></label>
+              <textarea class="input" id="v-desc" name="descricao" maxlength="2000" placeholder="Mobília, internet, regras da casa, contas inclusas e quanto tempo a pé até o campus."></textarea>
+              <span class="hint">Inclua: mobília · internet · regras da casa · distância a pé do campus.</span>
+              <span class="field-error" data-erro="descricao"></span>
+            </div>
+          </fieldset>
+
+          <!-- 2. Valores -->
+          <fieldset class="fset" data-reveal>
+            <legend><span class="n"><i class="ph ph-currency-circle-dollar"></i></span>Valor e vagas</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="v-valor">Valor mensal (R$) <span class="req">*</span></label>
+                <div class="input-group"><i class="ph ph-currency-dollar-simple"></i><input class="input" id="v-valor" name="valor" type="number" inputmode="numeric" min="50" step="10" placeholder="650"></div>
+                <span class="field-error" data-erro="valor"></span>
+              </div>
+              <div class="field">
+                <span class="label" id="lbl-modo">O valor é <span class="req">*</span></span>
+                <div class="segmented" role="radiogroup" aria-labelledby="lbl-modo" id="modo">
+                  <span class="seg-pill" aria-hidden="true"></span>
+                  <label><input type="radio" name="valorModo" value="pessoa" checked>Por pessoa</label>
+                  <label><input type="radio" name="valorModo" value="imovel">Pelo imóvel todo</label>
+                </div>
+              </div>
+              <div class="field full">
+                <span class="label" id="lbl-vagas">Número de vagas disponíveis <span class="req">*</span></span>
+                <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+                  <div class="stepper" role="group" aria-labelledby="lbl-vagas">
+                    <button type="button" data-step="-1" aria-label="Diminuir"><i class="ph ph-minus"></i></button>
+                    <output id="vagas-out" aria-live="polite">1</output>
+                    <button type="button" data-step="1" aria-label="Aumentar"><i class="ph ph-plus"></i></button>
+                  </div>
+                  <span class="hint" id="por-pessoa"></span>
+                </div>
+                <input type="hidden" name="vagas" value="1">
+                <span class="field-error" data-erro="vagas"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 3. Contato e localização -->
+          <fieldset class="fset" data-reveal>
+            <legend><span class="n"><i class="ph ph-map-pin-line"></i></span>Contato e localização</legend>
+            <div class="field">
+              <label for="v-whats">Telefone / WhatsApp para contato <span class="req">*</span></label>
+              <div class="input-group"><i class="ph ph-whatsapp-logo"></i><input class="input" id="v-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(38) 99999-9999"></div>
+              <span class="field-error" data-erro="whatsapp"></span>
+            </div>
+            <div class="field">
+              <label for="v-maps">Link do Google Maps <span class="req">*</span></label>
+              <div class="input-group"><i class="ph ph-link"></i><input class="input" id="v-maps" name="mapsUrl" type="url" inputmode="url" placeholder="https://maps.app.goo.gl/..."></div>
+              <span class="hint">No Google Maps, toque no imóvel, depois em <strong>Compartilhar</strong> e copie o link. O estudante vê a distância até o campus antes de chamar você.</span>
+              <span class="status-line" id="maps-status" aria-live="polite"></span>
+              <span class="field-error" data-erro="mapsUrl"></span>
+              <div class="map-preview" id="maps-preview" hidden></div>
+            </div>
+          </fieldset>
+
+          <!-- 4. Fotos -->
+          <fieldset class="fset" data-reveal>
+            <legend><span class="n"><i class="ph ph-images"></i></span>Fotos do imóvel</legend>
+            <div class="field drop-wrap">
+              <label class="drop" id="drop">
+                <i class="ph ph-cloud-arrow-up"></i>
+                <b>Arraste as fotos aqui ou toque para escolher</b>
+                <span class="hint">Até 8 fotos (JPG ou PNG). A primeira vira a capa. Fotos reais passam confiança para estudantes e pais.</span>
+                <input type="file" id="v-fotos" accept="image/*" multiple aria-label="Escolher fotos do imóvel">
+              </label>
+              <div class="thumbs" id="thumbs"></div>
+              <span class="field-error" data-erro="fotos"></span>
+            </div>
+          </fieldset>
+
+          <!-- 5. Termo -->
+          <fieldset class="fset" data-reveal>
+            <legend><span class="n"><i class="ph ph-scroll"></i></span>Termo de uso</legend>
+            <div class="terms" id="termo" tabindex="0" aria-label="Texto do termo de uso"></div>
+            <div class="terms-accept field">
+              <label class="check"><input type="checkbox" name="termo" id="v-termo"><span>Li e aceito o termo de uso. Entendo que <strong>o TetoCerto apenas divulga o anúncio</strong> e não participa de pagamentos nem de contratos entre mim e os interessados.</span></label>
+              <span class="field-error" data-erro="termo"></span>
+            </div>
+          </fieldset>
+
+          <button class="btn btn-primary" type="submit" style="min-height:54px;padding:0 30px;font-size:1.05rem"><i class="ph ph-rocket-launch"></i>Publicar anúncio</button>
+        </div>
+
+        <aside class="aside-sticky">
+          <div class="preview-wrap" style="display:grid;gap:10px">
+            <span class="preview-label"><i class="ph ph-eye"></i>Prévia do seu anúncio</span>
+            <div id="preview"></div>
+          </div>
+          <ul class="checklist" id="checklist" aria-label="Campos obrigatórios"></ul>
+        </aside>
+      </form>
+    </div>
+  </main>
+
+  <!-- Sucesso -->
+  <dialog class="modal" id="dlg-ok" aria-labelledby="dlg-ok-t">
+    <div class="modal-inner success">
+      <svg class="success-icon" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="42"/><path d="M26 43 l11 11 l21 -23" pathLength="1"/></svg>
+      <h2 id="dlg-ok-t">Anúncio publicado!</h2>
+      <p class="muted" id="dlg-ok-txt"></p>
+      <div class="modal-actions" style="justify-content:center">
+        <a class="btn" id="ok-ver" href="#">Ver anúncio</a>
+        <a class="btn btn-primary" href="painel.html">Ir para o painel<i class="ph ph-arrow-right"></i></a>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/anunciar.js"></script>
+</body>
+</html>
