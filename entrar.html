@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Entrar ou criar conta | TetoCerto</title>
+  <meta name="description" content="Entre como estudante para comentar e avaliar, ou como proprietário para anunciar seu imóvel.">
+  <meta name="theme-color" content="#f1f3f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1318" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tetocerto:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="entrar">
+  <header class="site-header" id="site-header"></header>
+
+  <main id="conteudo">
+    <div class="container auth">
+      <div class="auth-visual" data-reveal="clip">
+        <div class="media"><img data-foto="bomFimRua" data-w="1280" alt="Rua Bom Fim com casarões coloniais em Diamantina"></div>
+        <div class="auth-copy" id="auth-copy"></div>
+      </div>
+
+      <div class="auth-panel" id="auth-panel">
+        <div class="fade-up">
+          <h1>Entrar ou criar conta</h1>
+          <p class="muted" style="margin-top:8px">Escolha o seu perfil. Cada um tem o seu caminho no site.</p>
+        </div>
+
+        <div class="segmented fade-up" style="--d:80ms" role="radiogroup" aria-label="Perfil" id="perfil">
+          <span class="seg-pill" aria-hidden="true"></span>
+          <label><input type="radio" name="perfil" value="estudante" checked><i class="ph ph-student"></i>Sou estudante</label>
+          <label><input type="radio" name="perfil" value="proprietario"><i class="ph ph-key"></i>Sou proprietário</label>
+        </div>
+
+        <div class="role-hint fade-up" style="--d:140ms" id="role-hint"></div>
+
+        <div class="fade-up" style="--d:200ms">
+          <div class="mode-switch" role="tablist" aria-label="Entrar ou cadastrar">
+            <button type="button" role="tab" aria-selected="true" data-modo="entrar" id="tab-entrar">Entrar</button>
+            <button type="button" role="tab" aria-selected="false" data-modo="cadastro" id="tab-cadastro">Criar conta</button>
+          </div>
+          <form class="auth-form" id="auth-form" novalidate style="margin-top:22px"></form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/entrar.js"></script>
+</body>
+</html>
